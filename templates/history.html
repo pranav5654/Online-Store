@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Styling for the dashboard */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-header {
+            background-color: #eed7d7;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .profile-icon, .cart-icon {
+            filter: brightness(2); /* Adjust brightness to make icons lighter */
+            margin-top: 5px; /* Adjust margin to center vertically */
+        }
+        .profile-icon:hover, .cart-icon:hover {
+            filter: brightness(1); /* Adjust brightness on hover */
+        }
+        .menu {
+            float: left;
+            margin-left: 20px;
+        }
+        .cart {
+            float: right;
+            margin-right: 20px;
+        }
+        .clear {
+            clear: both;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <div class="profile-icon">
+            <a href = "/profile_update">Profile</a>
+        </div>
+        
+        <div class="menu">
+
+            <a href="/dashboard">Home</a> |
+            <a href="/orders">Orders</a> |
+            <a href="/log_out">Log Out</a>
+
+        </div>
+
+        <div class="cart">
+            <a href = "/cart" > 
+                <button>Cart</button></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Product_id</th>
+            <th>Date of Purchase</th>
+        </tr>
+        {% for user in products %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
